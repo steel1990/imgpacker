@@ -1,0 +1,17 @@
+{
+  "name": "imgpacker",
+  "version": "0.1.0",
+  "description": "a pure nodejs module for pack multi images(up to 4) to a single image(in RGBA chanels)",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "images",
+    "packer"
+  ],
+  "author": "lbbsteel@gmail.com",
+  "license": "MIT"
+}
