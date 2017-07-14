@@ -3,7 +3,13 @@
   "version": "0.1.0",
   "description": "a pure nodejs module for pack multi images(up to 4) to a single image(in RGBA chanels)",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "debug": "^2.6.8",
+    "jimp": "^0.2.28",
+    "jpeg-js": "^0.3.3",
+    "pngjs": "^3.2.0",
+    "tga": "^1.0.2"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
