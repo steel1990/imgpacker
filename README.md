@@ -1,6 +1,6 @@
 imgpacker [![npm][npm-image]][npm-url]
 ========
-This is a pure Node.js module for packer multi images(max 4) in a single image(in diffrent chanel).
+This is a pure Node.js module for package multiple images(max 4) to a single image(in diffrent chanel).
 
 Requirements
 ========
@@ -15,8 +15,8 @@ $ npm install imgpacker --save
 API
 ========
 ### pack(opt)
-* [opt.width]: output image width
-* [opt.height]: output image height
+* opt.width: output image width, find the max width if you don't pass.
+* opt.height: output image height, find the max height if you don't pass.
 * opt.R: output image R chanel image data
     * opt.R.buffer: the source image file buffer(fs.readFile)
 * opt.G: output image G chanel image data
