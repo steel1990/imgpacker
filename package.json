@@ -6,7 +6,6 @@
   "dependencies": {
     "debug": "^2.6.8",
     "jimp": "^0.2.28",
-    "jpeg-js": "^0.3.3",
     "pngjs": "^3.2.0",
     "tga": "^1.0.2"
   },
@@ -15,9 +14,17 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "images",
+    "image",
     "packer"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steel1990/imgpacker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/steel1990/imgpacker/issues"
+  },
+  "homepage": "https://github.com/steel1990/imgpacker#readme",
   "author": "lbbsteel@gmail.com",
   "license": "MIT"
 }
