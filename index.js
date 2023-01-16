@@ -2,10 +2,12 @@ const debug = require('debug')('imgpacker:index');
 const PNG = require('pngjs').PNG;
 const getImage = require('./getImage');
 
+const channelNames = ['R', 'G', 'B', 'A'];
+
 function pack(opt) {
     debug('pack', opt);
-    return Promise.all(['R', 'G', 'B', 'A'].map(chanel => {
-        var data = opt[chanel];
+    return Promise.all(channelNames.map(channel => {
+        var data = opt[channel];
         if (!data) {
             return Promise.resolve();
         }
@@ -38,7 +40,11 @@ function pack(opt) {
                 for (var j = 0; j < 4; j++) {
                     var img = imgs[j];
                     if (img) {
-                        packedPixels[i + j] = img.bitmap.data[i];
+                        if (opt[channelNames[j]]?.converter) {
+                            packedPixels[i + j] = opt[channelNames[j]].converter(img.bitmap.data[i], img.bitmap.data.slice(i, i + 3));
+                        } else {
+                            packedPixels[i + j] = img.bitmap.data[i];
+                        }
                     } else if (j === 3) {
                         packedPixels[i + j] = 255;
                     }

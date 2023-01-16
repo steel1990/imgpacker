@@ -12,6 +12,34 @@ Installation
 $ npm install imgpacker --save
 ```
 
+Command line
+========
+command to pack metallic, ao and roughness textures to a single image, and convert roughness to smoothness.
+
+```shell
+imgpacker -R metallic.png -G ao.png -A roughness.png --flip A -o mask.png
+```
+
+```
+Usage: imgpacker [options] [command]
+
+  Commands:
+    help     Display help
+    version  Display version
+
+  Options:
+    -A, --A        alpha channel input image
+    -B, --B        blue channel input image
+    -G, --G        green channel input image
+    -R, --R        red channel input image
+    -f, --flip     channels need flip (RGBA), if you want to flip R channel then pass "R"
+    -h, --h <n>    output image height (defaults to 1024)
+    -H, --help     Output usage information
+    -o, --o        output file
+    -v, --version  Output the version number
+    -w, --w <n>    output image width (defaults to 1024)
+```
+
 API
 ========
 ### pack(opt)
