@@ -22,7 +22,7 @@ program.parse();
 
 const flags = program.opts();
 
-console.log(flags)
+// console.log(flags)
 
 const opt = {
   width: flags.w,
@@ -47,4 +47,5 @@ const opt = {
 
 imgPacker.pack(opt).then(buffer => {
     fs.writeFileSync(flags.o, buffer);
+    console.log('packed image saved at', flags.o);
 });
