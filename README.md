@@ -46,6 +46,8 @@ API
 * opt.height: output image height, find the max height if you don't pass.
 * opt.R: output image R chanel image data
     * opt.R.buffer: the source image file buffer(fs.readFile)
+    * opt.R.converter: (number, number[]) => number; pixel value convert function
+    * opt.R.channel: pixel value from which channel in origin image
 * opt.G: output image G chanel image data
 * opt.B: output image B chanel image data
 * opt.A: output image A chanel image data
