@@ -3,6 +3,7 @@ const PNG = require('pngjs').PNG;
 const getImage = require('./getImage');
 
 const channelNames = ['R', 'G', 'B', 'A'];
+const RGBAMap = { R: 0, G: 1, B: 2, A: 3 };
 
 function pack(opt) {
     debug('pack', opt);
@@ -40,10 +41,14 @@ function pack(opt) {
                 for (var j = 0; j < 4; j++) {
                     var img = imgs[j];
                     if (img) {
+                        let origin = img.bitmap.data[i];
+                        if (opt[channelNames[j]]?.channel) {
+                            origin = img.bitmap.data[i + RGBAMap[opt[channelNames[j]].channel]];
+                        }
                         if (opt[channelNames[j]]?.converter) {
-                            packedPixels[i + j] = opt[channelNames[j]].converter(img.bitmap.data[i], img.bitmap.data.slice(i, i + 3));
+                            packedPixels[i + j] = opt[channelNames[j]].converter(origin, img.bitmap.data.slice(i, i + 3));
                         } else {
-                            packedPixels[i + j] = img.bitmap.data[i];
+                            packedPixels[i + j] = origin;
                         }
                     } else if (j === 3) {
                         packedPixels[i + j] = 255;

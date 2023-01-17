@@ -1,21 +1,28 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const args = require('args');
+const { program } = require('commander');
 const imgPacker = require('./index');
 
-args
-  .option('w', 'output image width', 1024)
-  .option('h', 'output image height', 1024)
-  .option('R', 'red channel input image')
-  .option('G', 'green channel input image')
-  .option('B', 'blue channel input image')
-  .option('A', 'alpha channel input image')
-  .option('flip', 'channels need flip (RGBA), if you want to flip R channel then pass "R"')
-  .option('o', 'output file');
+program
+  .option('-w <size>', 'output image width', 1024)
+  .option('-h <size>', 'output image height', 1024)
+  .option('-R <path>', 'red channel input image')
+  .option('-G <path>', 'green channel input image')
+  .option('-B <path>', 'blue channel input image')
+  .option('-A <path>', 'alpha channel input image')
+  .option('--rc <RGBA>', 'which channel to read from the red channel input image')
+  .option('--gc <RGBA>', 'which channel to read from the green channel input image')
+  .option('--bc <RGBA>', 'which channel to read from the blue channel input image')
+  .option('--ac <RGBA>', 'which channel to read from the alpha channel input image')
+  .option('--flip <RGBA>', 'channels need flip (RGBA), if you want to flip R channel then pass "R"')
+  .requiredOption('-o <path>', 'output file');
 
-const flags = args.parse(process.argv);
+program.parse();
 
+const flags = program.opts();
+
+console.log(flags)
 
 const opt = {
   width: flags.w,
@@ -27,6 +34,9 @@ const opt = {
     opt[channel] = {
       buffer: fs.readFileSync(flags[channel])
     };
+    if (flags[channel.toLowerCase() + 'c']) {
+      opt[channel].channel = flags[channel.toLowerCase() + 'c'];
+    }
     if (flags.flip?.includes(channel)) {
       opt[channel].converter = (v, rgb) => {
         return 255 - v;

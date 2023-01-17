@@ -7,7 +7,7 @@
     "imgpacker": "cli.js"
   },
   "dependencies": {
-    "args": "^5.0.3",
+    "commander": "^10.0.0",
     "debug": "^2.6.8",
     "jimp": "^0.16.2",
     "pngjs": "^3.2.0",

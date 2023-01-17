@@ -23,21 +23,20 @@ imgpacker -R metallic.png -G ao.png -A roughness.png --flip A -o mask.png
 ```
 Usage: imgpacker [options] [command]
 
-  Commands:
-    help     Display help
-    version  Display version
-
   Options:
-    -A, --A        alpha channel input image
-    -B, --B        blue channel input image
-    -G, --G        green channel input image
-    -R, --R        red channel input image
-    -f, --flip     channels need flip (RGBA), if you want to flip R channel then pass "R"
-    -h, --h <n>    output image height (defaults to 1024)
-    -H, --help     Output usage information
-    -o, --o        output file
-    -v, --version  Output the version number
-    -w, --w <n>    output image width (defaults to 1024)
+    -w <size>      output image width (default: 1024)
+    -h <size>      output image height (default: 1024)
+    -R <path>      red channel input image
+    -G <path>      green channel input image
+    -B <path>      blue channel input image
+    -A <path>      alpha channel input image
+    --rc <RGBA>    which channel to read from the red channel input image
+    --gc <RGBA>    which channel to read from the green channel input image
+    --bc <RGBA>    which channel to read from the blue channel input image
+    --ac <RGBA>    which channel to read from the alpha channel input image
+    --flip <RGBA>  channels need flip(255-origin), if you want to flip R channel then pass "R"
+    -o <path>      output file
+    --help         display help for command
 ```
 
 API
