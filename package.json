@@ -1,6 +1,6 @@
 {
   "name": "imgpacker",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "a pure nodejs module for pack multi images(up to 4) to a single image(in RGBA chanels)",
   "main": "index.js",
   "bin": {
