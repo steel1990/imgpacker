@@ -25,8 +25,8 @@ const flags = program.opts();
 // console.log(flags)
 
 const opt = {
-  width: flags.w,
-  height: flags.h,
+  width: Number(flags.w),
+  height: Number(flags.h),
 };
 
 'RGBA'.split('').forEach(channel => {
